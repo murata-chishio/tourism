@@ -13,7 +13,7 @@ interface editForm {
 const EditSpot = async ({params}: {params: { id: string } }) => {
     const router = useRouter();
     const {register, handleSubmit} = useForm<editForm>();
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
+    const API_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
 
     const res = await fetch(`${API_URL}/api/${params.id}`, { next: {
         revalidate: 10,
