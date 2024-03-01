@@ -23,7 +23,7 @@ const EditSpot = async ({params}: {params: { id: string } }) => {
 
     const onSubmit = async(data: editForm) => {
         
-            await fetch(`${API_URL}/api/${params.id}`, { 
+            await fetch(`https://${API_URL}/api/${params.id}`, { 
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
