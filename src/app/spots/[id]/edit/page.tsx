@@ -13,7 +13,7 @@ interface editForm {
 const EditSpot = async ({params}: {params: { id: string } }) => {
     const router = useRouter();
     const {register, handleSubmit} = useForm<editForm>();
-    const API_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
+    const API_URL = process.env.VERCEL_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
 
     const res = await fetch(`${API_URL}/api/${params.id}`, { next: {
         revalidate: 10,
@@ -23,7 +23,7 @@ const EditSpot = async ({params}: {params: { id: string } }) => {
 
     const onSubmit = async(data: editForm) => {
         
-            await fetch(`${API_URL}/api/${params.id}`, { 
+            await fetch(`https://${API_URL}/api/${params.id}`, { 
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
