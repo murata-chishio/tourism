@@ -17,8 +17,8 @@ const CreateSpot = () => {
 
     const onSubmit = async(data: createForm) => {
         
-            const API_URL = process.env.NEXT_PUBLIC_API_URL;
-            await fetch(`${API_URL}/api/create`, { 
+            const API_URL = process.env.VERCEL_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
+            await fetch(`https://${API_URL}/api/create`, { 
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
