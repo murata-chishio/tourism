@@ -3,7 +3,7 @@ import SpotList from './components/SpotList'
 export default async function Home() {
   // const spots = await getAllSpots();
 
-  const API_URL = process.env.VERCEL_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
+  const API_URL = process.env.VERCEL_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL ?? "tourism-beige.vercel.app";
 
   const res = await fetch(`https://${API_URL}/api`, { cache: "no-store" })
 
@@ -11,7 +11,6 @@ export default async function Home() {
   
   return (
     <div>
-      <div>{API_URL}</div>
       <SpotList spots={spots}/>
     </div>
   )
